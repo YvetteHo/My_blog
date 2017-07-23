@@ -5,6 +5,15 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the kitty index")
+def homepage(request):
+    return HttpResponse("This is homepage")
+
+def about(request):
+    return HttpResponse("about me")
+
+def contact(request):
+    return HttpResponse("contact me")
+
+
+
 # Create your views here.
