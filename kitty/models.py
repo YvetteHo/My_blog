@@ -11,6 +11,7 @@ class Post(models.Model):
     subtitle_text = models.CharField(max_length=20)
     body_text = models.TextField(None)
     publish_date = models.DateTimeField('data published')
+    url_text = models.CharField(max_length=20, primary_key=True)
 
     def __str__(self):
         return str(self.title_text)+str(self.subtitle_text)+str(self.publish_date)
