@@ -6,6 +6,13 @@ from django.utils import timezone
 from django.utils.encoding import python_2_unicode_compatible
 # Create your models here.
 @python_2_unicode_compatible
+class About(models.Model):
+    self_intro_text = models.TextField(None)
+
+    def __str__(self):
+        return str(self.self_intro_text)
+
+@python_2_unicode_compatible
 class Post(models.Model):
     title_text = models.CharField(max_length=20)
     subtitle_text = models.CharField(max_length=20)
