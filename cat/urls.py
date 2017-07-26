@@ -19,6 +19,7 @@ from kitty import views
 
 
 urlpatterns = [
+    url(r'^post/(?P<url_text>\w+)', views.post, name="post"),
     url(r'^kitty/', include('kitty.urls')),
     url(r'^$', views.homepage, name='homepage'),
     url(r'^about/', views.about, name="about"),
