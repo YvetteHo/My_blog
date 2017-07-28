@@ -66,7 +66,7 @@
 
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" style="background-image: url('{% static 'img/home-bg.jpg' %}')">
+    <header class="intro-header" style="background-image: url('{% static 'img/cat.jpg' %}')">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -85,7 +85,7 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
-              {% for post in latest_post_list %}
+              {% for post in posts %}
                   <div class="post-preview">
                       <a href="/post/{{ post.url_text }}">
                           <h2 class="post-title">
@@ -99,11 +99,28 @@
                    </div>
                   <hr>
                 {% endfor %}
-                <!-- Pager -->
+
                 <ul class="pager">
-                    <li class="next">
-                        <a href="#">Older Posts &rarr;</a>
-                    </li>
+                  <div class="paginator">
+                    <span class="step-links">
+                      <li class="next">
+                        <div class="paginator">
+                          <span class="step-links">
+                            <span class = "current">
+                              {{ posts.number }} of {{ posts.paginator.num_pages }}
+                            </span>
+                          </span>
+                        </div>
+                        {% if posts.has_next %}
+                            <a href="?page={{ posts.next_page_number }}">NEXT&rarr;</a>
+                        {% endif %}
+                        {% if posts.has_previous %}
+                          <a href="?page={{ posts.previous_page_number }}">&larr; PREV</a>
+                        {% endif %}
+                      </li>
+                    </span>
+                  </div>
+
                 </ul>
             </div>
         </div>
