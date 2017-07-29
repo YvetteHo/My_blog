@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,13 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
      os.path.join(os.path.dirname(__file__), 'cat/static/').replace('\\','/'),
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+# utils.py
+
+def get_filename(filename):
+    return filename.upper()
+
+# settings.py
+
+CKEDITOR_FILENAME_GENERATOR = 'utils.get_filename'
