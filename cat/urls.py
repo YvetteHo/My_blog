@@ -17,6 +17,21 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from kitty import views
 
+from django.conf import settings
+# from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
+# if settings.DEBUG:
+#     urlpatterns += patterns(
+#         '',
+#         url(
+#             r'^media/(?P<path>.*)$',
+#             'django.views.static.serve', {
+#                 'document_root': settings.MEDIA_ROOT,
+#             }
+#         ),
+#     )
+
+# urlpatterns += staticfiles_urlpatterns()
 
 urlpatterns = [
     url(r'^post/(?P<url_text>\w+)', views.post, name="post"),

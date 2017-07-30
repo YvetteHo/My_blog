@@ -9,11 +9,6 @@ from .models import Post, About
 
 from django.template import loader
 
-
-
-
-
-
 from django.shortcuts import render_to_response
 
 from django.core.paginator import Paginator,InvalidPage,EmptyPage,PageNotAnInteger

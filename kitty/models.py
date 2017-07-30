@@ -4,7 +4,7 @@ from django.db import models
 import datetime
 from django.utils import timezone
 from django.utils.encoding import python_2_unicode_compatible
-
+from ckeditor_uploader.fields import RichTextUploadingField
 # Create your models here.
 # @python_2_unicode_compatible
 # class About(models.Model):
@@ -28,7 +28,7 @@ class About(models.Model):
 class Post(models.Model):
     title_text = models.CharField(max_length=20)
     subtitle_text = models.CharField(max_length=20)
-    body_text = models.TextField(None)
+    body_text = RichTextUploadingField()
     publish_date = models.DateTimeField('data published')
     url_text = models.CharField(max_length=20, primary_key=True)
     def __unicode__(self):

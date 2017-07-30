@@ -86,7 +86,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                   <p>
-                    {{ post.body_text }}
+                    {{ post.body_text|safe}}
                   </p>
                   <hr>
                 </div>
@@ -174,6 +174,9 @@
     <!-- Theme JavaScript -->
     <script src="{% static 'js/clean-blog.min.js' %}"></script>
 
+    {% load static %}
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
 
 <script id="dsq-count-scr" src="//yvetteho.disqus.com/count.js" async></script>
 </body>
