@@ -15,7 +15,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 # @python_2_unicode_compatible
 class About(models.Model):
-    self_intro_text = models.TextField(None)
+    self_intro_text = RichTextUploadingField()
     def __str__(self):
         return ('%s' % self.self_intro_text).encode('utf-8', errors='replace')
     #
