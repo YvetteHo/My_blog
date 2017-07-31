@@ -16,13 +16,13 @@ from ckeditor_uploader.fields import RichTextUploadingField
 # @python_2_unicode_compatible
 class About(models.Model):
     self_intro_text = RichTextUploadingField()
-    def __str__(self):
-        return ('%s' % self.self_intro_text).encode('utf-8', errors='replace')
-    #
     # def __str__(self):
-    #     return str(self.self_intro_text)
-    def __unicode__(self):
+    #     return ('%s' % self.self_intro_text).encode('utf-8', errors='replace')
+    #
+    def __str__(self):
         return self.self_intro_text
+    # def __unicode__(self):
+    #     return self.self_intro_text
 
 # @python_2_unicode_compatible
 class Post(models.Model):

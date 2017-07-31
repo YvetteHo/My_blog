@@ -58,12 +58,10 @@ def post(request, url_text):
 
 def about(request):
     try:
-        self_intro_text = About.objects.all().first()
+        self_intro_text = About.objects.get(pk=1)
     except About.DoesNotExist:
         self_intro_text = 'Nothing'
     return render(request, 'kitty/about.html', {'self_intro_text': self_intro_text})
 
-def contact(request):
-    return HttpResponse("contact me")
 
 # Create your views here.

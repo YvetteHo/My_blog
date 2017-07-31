@@ -27,7 +27,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'yvetteho.com',
-    'www.yvetteho.com'
+    'www.yvetteho.com',
+    '127.0.0.1'
 ]
 
 
