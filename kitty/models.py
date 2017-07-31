@@ -19,10 +19,10 @@ class About(models.Model):
     # def __str__(self):
     #     return ('%s' % self.self_intro_text).encode('utf-8', errors='replace')
     #
-    # def __str__(self):
-    #     return "about me"
-    def __unicode__(self):
+    def __str__(self):
         return self.self_intro_text
+    # def __unicode__(self):
+    #     return self.self_intro_text
 
 # @python_2_unicode_compatible
 class Post(models.Model):
