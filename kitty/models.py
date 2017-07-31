@@ -20,7 +20,7 @@ class About(models.Model):
     #     return ('%s' % self.self_intro_text).encode('utf-8', errors='replace')
     #
     def __str__(self):
-        return ""
+        return "about me"
     # def __unicode__(self):
     #     return self.self_intro_text
 
@@ -31,6 +31,8 @@ class Post(models.Model):
     body_text = RichTextUploadingField()
     publish_date = models.DateTimeField('data published')
     url_text = models.CharField(max_length=20, primary_key=True)
+    def __str__(self):
+        return (u'%s') % self.title_text
     def __unicode__(self):
         return (u'%s') % self.title_text
     # def __str__(self):
