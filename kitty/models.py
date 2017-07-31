@@ -20,7 +20,7 @@ class About(models.Model):
     #     return ('%s' % self.self_intro_text).encode('utf-8', errors='replace')
     #
     def __str__(self):
-        return self.self_intro_text
+        return ""
     # def __unicode__(self):
     #     return self.self_intro_text
 
