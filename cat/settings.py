@@ -23,9 +23,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(-ib&+3v+b4&56^rr*3schqi)l*46@=cui+d0=v65^%q@5yr%r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'yvetteho.com',
+    'www.yvetteho.com'
+]
 
 
 # Application definition
@@ -122,6 +125,7 @@ AWS_QUERYSTRING_AUTH = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, "static/")
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
      os.path.join(os.path.dirname(__file__), 'cat/static/').replace('\\','/'),
