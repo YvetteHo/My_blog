@@ -1,0 +1,44 @@
+version: '3'
+services:
+  nginx-proxy:
+    image: jwilder/nginx-proxy:0.6.0
+    container_name: nginx-proxy
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+      - ./nginx/certs:/etc/nginx/certs
+      - ./nginx/vhost.d:/etc/nginx/vhost.d
+      - ./nginx/share:/usr/share/nginx/html
+  nginx-proxy-letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    container_name: letsencrypt
+    restart: always
+    environment:
+      - NGINX_PROXY_CONTAINER=nginx-proxy
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./nginx/certs:/etc/nginx/certs
+      - ./nginx/vhost.d:/etc/nginx/vhost.d
+      - ./nginx/share:/usr/share/nginx/html
+  uwsgi:
+    build: .
+    container_name: uwsgi
+    restart: always
+    volumes:
+      - uwsgi-volume:/run/uwsgi
+  nginx:
+    image: nginx
+    restart: always
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/blog.conf
+      - uwsgi-volume:/run/uwsgi
+      - ./:/app
+    environment:
+      - VIRTUAL_HOST=yvetteho.com,www.yvetteho.com
+      - LETSENCRYPT_HOST=yvetteho.com,www.yvetteho.com
+      - LETSENCRYPT_EMAIL=yvetteho@126.com
+volumes:
+  uwsgi-volume:
